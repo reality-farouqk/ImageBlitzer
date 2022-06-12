@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quickly Download A Feature Image For Your Blog Post; 
+    Enter any text that corelate with your subject matter and get a matching image for it ;)">
+    <title>ImageBlitz</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="./images/ImageBlitzer.svg" alt="logo">
+            </div>
+            <p>Quickly download a feature image for your Blog Post</p>
+        </header>
+
+        <main>
+            <div class="search-box">
+                <input type="text" id="input" placeholder="search for image...">
+                <button onclick="loadImages()" class="search-btn">SEARCH</button>
+            </div>
+            <div class="grid-container">
+                <div class="grid"></div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
