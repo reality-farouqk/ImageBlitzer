@@ -6,10 +6,14 @@
     box-sizing: border-box;
 }
 
+* {
+    font-family: "Open Sans", sans-serif;;
+}
+
 body {
     font-size: 100%;
-    font-family: "Open Sans", sans-serif;
     background-color: #E4F0F6;
+    scroll-behavior: smooth;
 }
 
 img {
@@ -37,7 +41,7 @@ header {
 
 header > p {
     line-height: 1.2rem;
-    border-bottom: .5px solid #BBBBBB;
+    border-bottom: .5px solid #9c8787;
     padding-bottom: 20px;
 }
 
@@ -49,7 +53,6 @@ main {
     max-width: 600px;
     height: 40px;
     position: relative;
-    outline: 0;
     font-size: 15px;
     margin: 0 auto;
 }
@@ -58,9 +61,13 @@ input {
     width: 100%;
     height: 100%;
     outline: none;
-    border: none;
+    border: 0;
     border-radius: 10px;
     padding: 20px;
+}
+
+input:focus {
+    border-inline: 2px solid #bbb;
 }
 
 .search-btn {
@@ -69,11 +76,56 @@ input {
     right: 0;
     width: 80px;
     height: 100%;
-    border: 0;
     background-color: #052637;
     color: #fff;
+    border: 0;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
+
+    transition: all 300ms ease-in-out;
 }
 
+.search-btn:hover,
+.search-btn:active {
+    background-color: #052637dc;
+    color: #f5f7f8;
+}
+
+.grid {
+    margin-top: 15px;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-container .grid div {
+    /* max-width: 100%; */
+    height: 350px;
+}
+
+.grid-container .grid div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+@media (max-width: 350px) {
+    .search-btn {
+        width: 70px;
+        font-size: 14px;
+        text-transform: lowercase;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-container .grid div {
+        /* max-width: 100%; */
+        height: 400px;
+    }
+}
