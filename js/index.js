@@ -24,9 +24,9 @@ function loadImages() {
             let div = imageNodes[i] = document.createElement('div');
             let imageElem = imageNodes[i] = document.createElement('img');
             div.appendChild(imageElem);
-            imageElem.src = `${data.results[i].urls.small}`;
+            imageElem.src = `${data.results[i].urls.regular}`;
             grid.appendChild(div);
-            // to check if data has been fetched for debug purpose
+            // To check if data has been fetched for debug purpose
             console.log(imageNodes)
         };
     });
