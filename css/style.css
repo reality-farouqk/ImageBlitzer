@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open%20Sans:400,600,700&display=swap');
+
 *,
 ::after,
 ::before {
@@ -30,9 +32,14 @@ img {
 }
 
 .logo {
+    font-family: 'Gabriola', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 35px;
     width: 120px;
     height: auto;
     margin: 0 auto;
+    user-select: none;
 }
 
 header {
@@ -93,7 +100,7 @@ input:focus {
 }
 
 .grid {
-    margin-top: 15px;
+    margin-top: 20px;
     width: 100%;
     min-height: 100vh;
     display: grid;
@@ -102,7 +109,6 @@ input:focus {
 }
 
 .grid-container .grid div {
-    /* max-width: 100%; */
     height: 350px;
 }
 

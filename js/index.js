@@ -9,12 +9,13 @@ input.addEventListener('keydown', function(e) {
 function loadImages() {
     removeImages();
     const searchUrl = url+input.value+'&per_page=12&client_id=eX7rkrcCsaU_lOKOuah-MsmKA7zJxOO3jpVIad5G9yQ';
-    
+    console.log(searchUrl)
     fetch(searchUrl)
     .then(response => {
         console.log(response)
         if(response.ok) return response.json();
         else 
+            ///edit code to say image is not found or your internet connection is not strong
             alert(response.status);
     })
     .then(data => {
@@ -24,9 +25,8 @@ function loadImages() {
             let imageElem = imageNodes[i] = document.createElement('img');
             div.appendChild(imageElem);
             imageElem.src = `${data.results[i].urls.small}`;
-            // imageNodes[i].style.backgroundImage = 'url('+data.results[i].urls.small+')';
-            // imageNodes[i]
             grid.appendChild(div);
+            // to check if data has been fetched for debug purpose
             console.log(imageNodes)
         };
     });
@@ -35,3 +35,4 @@ function loadImages() {
 function removeImages() {
     grid.innerHTML = '';
 };
+
