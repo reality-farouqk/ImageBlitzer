@@ -22,12 +22,27 @@ function loadImages() {
         const imageNodes = [];
         for(let i = 0; i < data.results.length; i++){
             let div = imageNodes[i] = document.createElement('div');
+
+            var divChild = document.createElement('div');
+            divChild.className = "img-siblingBox";
+
+            let creatorImageBox = document.createElement('div');
+            let creatorName = document.createElement('p');
+            let dlElem = document.createElement('a');
+            creatorImageBox.className = "creator-img-box";
+            creatorName.className = "creator-name";
+            dlElem.className = "download-btn";
+
+            divChild.append(creatorImageBox, creatorName, dlElem);
+            console.log(divChild)
+
             let imageElem = imageNodes[i] = document.createElement('img');
-            div.appendChild(imageElem);
+            div.append(imageElem, divChild);
+
             imageElem.src = `${data.results[i].urls.regular}`;
             grid.appendChild(div);
             // To check if data has been fetched for debug purpose
-            console.log(imageNodes)
+            console.log(imageNodes)         
         };
     });
 };
@@ -36,3 +51,7 @@ function removeImages() {
     grid.innerHTML = '';
 };
 
+// div.addEventListener("mouseover", function(e) {
+//     if(e == true) e.divChild.style.transform = 'translateY(0%)';
+    
+// });
