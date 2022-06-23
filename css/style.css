@@ -37,12 +37,8 @@ img {
 }
 
 .logo {
-    font-family: 'Gabriola', sans-serif;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 35px;
     width: 120px;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
     user-select: none;
 }
@@ -178,8 +174,8 @@ input:focus {
 i {
     font-size: 22px;   
     color: #000;
-    justify-self: end;
     cursor: pointer;
+    justify-self: flex-end;
 }
 
 @media (max-width: 350px) {

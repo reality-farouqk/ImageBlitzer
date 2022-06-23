@@ -12,7 +12,6 @@ function loadImages() {
     console.log(searchUrl)
     fetch(searchUrl)
     .then(response => {
-        console.log(response)
         if(response.ok) return response.json();
         else 
             ///edit code to say image is not found or your internet connection is not strong
@@ -31,17 +30,15 @@ function loadImages() {
             let creatorName = document.createElement('p');
             creatorImageBox.className = "creator-img-box";
             creatorName.className = "creator-name";
-            let dlElem = document.createDocumentFragment()
             let icon = document.createElement('i')
             icon.classList.add('fa-solid', 'fa-download')
-            dlElem.appendChild(icon)
 
             // Assigning values to the child elements for divChild element
             creatorImageBox.src = `${data.results[i].user.profile_image.medium}`
             creatorName.innerHTML = `${data.results[i].user.name}`
 
             // append the creatorImageBox, creatorName and download button to their parent container which is divChild
-            divChild.append(creatorImageBox, creatorName, dlElem);
+            divChild.append(creatorImageBox, creatorName, icon);
 
             // declare a variable and create the image node
             let imageElem = imageNodes[i] = document.createElement('img');
