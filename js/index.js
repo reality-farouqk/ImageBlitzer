@@ -23,26 +23,58 @@ function loadImages() {
         for(let i = 0; i < data.results.length; i++){
             let div = imageNodes[i] = document.createElement('div');
 
-            var divChild = document.createElement('div');
+            let divChild = document.createElement('div');
             divChild.className = "img-siblingBox";
 
-            let creatorImageBox = document.createElement('div');
+            // Declare a variable and create the child elements for divChild element
+            let creatorImageBox = document.createElement('img');
             let creatorName = document.createElement('p');
-            let dlElem = document.createElement('a');
             creatorImageBox.className = "creator-img-box";
             creatorName.className = "creator-name";
-            dlElem.className = "download-btn";
+            let dlElem = document.createDocumentFragment()
+            let icon = document.createElement('i')
+            icon.classList.add('fa-solid', 'fa-download')
+            dlElem.appendChild(icon)
 
+            // Assigning values to the child elements for divChild element
+            creatorImageBox.src = `${data.results[i].user.profile_image.medium}`
+            creatorName.innerHTML = `${data.results[i].user.name}`
+
+            // append the creatorImageBox, creatorName and download button to their parent container which is divChild
             divChild.append(creatorImageBox, creatorName, dlElem);
-            console.log(divChild)
 
+            // declare a variable and create the image node
             let imageElem = imageNodes[i] = document.createElement('img');
-            div.append(imageElem, divChild);
-
+            // get the source link of the images 
             imageElem.src = `${data.results[i].urls.regular}`;
-            grid.appendChild(div);
-            // To check if data has been fetched for debug purpose
-            console.log(imageNodes)         
+            
+            // A hover effect that reveals the overlay and imageboxsibling
+            div.addEventListener('mouseover', () => {
+                divChild.style.transform = 'translateY(0%)'
+                div.style.setProperty('--transform-up', 'translateY(0%)')
+                
+                divChild.style.transition = 'all .5s linear'
+                div.style.setProperty('--image-before-transition', 'all .5s linear')
+            })
+
+            div.addEventListener('mouseout', () => {
+                divChild.style.transform = ''
+                div.style.setProperty('--transform-up', '')
+
+                divChild.style.transition = 'all .01s linear'
+                div.style.setProperty('--image-before-transition', 'all .01s linear')
+            })
+        
+            // Download image selected 
+            icon.addEventListener('click', ()=>{
+                window.open(data.results[i].links.download,
+                '_blank')
+            })
+
+            // append the imageElement and it's sibling box to their parent container which is div
+            div.append(imageElem, divChild);
+            // append the div element to the grid which it's parent container 
+            grid.appendChild(div);    
         };
     });
 };
@@ -50,8 +82,3 @@ function loadImages() {
 function removeImages() {
     grid.innerHTML = '';
 };
-
-// div.addEventListener("mouseover", function(e) {
-//     if(e == true) e.divChild.style.transform = 'translateY(0%)';
-    
-// });

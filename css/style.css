@@ -12,6 +12,11 @@
     font-family: "Open Sans", sans-serif;;
 }
 
+:root {
+    --transform-up: translateY(-100%);
+    --image-before-transition: "";
+}
+
 body {
     font-size: 100%;
     background-color: #E4F0F6;
@@ -112,7 +117,6 @@ input:focus {
     height: 350px;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
 }
 
 /* Image Overlay Styling  */
@@ -127,8 +131,9 @@ input:focus {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     z-index: 900;
-    /*bring back to original position using javascript and set tansition delay*/
-    transform: translateY(-100%);
+    /*bring back to original position using javascript and set transition delay*/
+    transform: var(--transform-up);
+    transition: var(--image-before-transition);
 }
 
 .grid-container .grid div img {
@@ -144,8 +149,9 @@ input:focus {
     z-index: 2000;
     width: 100%;
     height: 17.142857142857%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 10px;
@@ -155,6 +161,25 @@ input:focus {
 
 .grid div.img-siblingBox::before {
     display: none;
+}
+
+.creator-img-box {
+    max-height: 40px;
+    max-width: 40px;
+    border-radius: 50% !important;
+    background: #05263798;
+}
+
+.creator-name{
+    color: #414141;
+    align-self: center;
+}
+
+i {
+    font-size: 22px;   
+    color: #000;
+    justify-self: end;
+    cursor: pointer;
 }
 
 @media (max-width: 350px) {
@@ -173,4 +198,3 @@ input:focus {
         height: 400px;
     }
 }
-
