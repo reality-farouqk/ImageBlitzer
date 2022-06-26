@@ -9,7 +9,7 @@ input.addEventListener('keydown', function(e) {
 function loadImages() {
     removeImages();
     const searchUrl = url+input.value+'&per_page=12&client_id=eX7rkrcCsaU_lOKOuah-MsmKA7zJxOO3jpVIad5G9yQ';
-    console.log(searchUrl)
+    console.log(searchUrl);
     fetch(searchUrl)
     .then(response => {
         if(response.ok) return response.json();
@@ -30,12 +30,12 @@ function loadImages() {
             let creatorName = document.createElement('p');
             creatorImageBox.className = "creator-img-box";
             creatorName.className = "creator-name";
-            let icon = document.createElement('i')
-            icon.classList.add('fa-solid', 'fa-download')
+            let icon = document.createElement('i');
+            icon.classList.add('fa-solid', 'fa-download');
 
             // Assigning values to the child elements for divChild element
-            creatorImageBox.src = `${data.results[i].user.profile_image.medium}`
-            creatorName.innerHTML = `${data.results[i].user.name}`
+            creatorImageBox.src = `${data.results[i].user.profile_image.medium}`;
+            creatorName.innerHTML = `${data.results[i].user.name}`;
 
             // append the creatorImageBox, creatorName and download button to their parent container which is divChild
             divChild.append(creatorImageBox, creatorName, icon);
@@ -72,10 +72,10 @@ function loadImages() {
             div.append(imageElem, divChild);
             // append the div element to the grid which it's parent container 
             grid.appendChild(div);    
-        };
+        }
     });
-};
+}
 
 function removeImages() {
     grid.innerHTML = '';
-};
+}
