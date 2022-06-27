@@ -1,193 +1,193 @@
-@import url('https://fonts.googleapis.com/css?family=Open%20Sans:400,600,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open%20Sans:400,600,700&display=swap");
 
 *,
 ::after,
 ::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --transform-up: translateY(-100%);
-    --image-before-transition: "";
+  --transform-up: translateY(-100%);
+  --image-before-transition: "";
 }
 
 body {
-    font-size: 100%;
-    background-color: #E4F0F6;
-    font-family: "Open Sans", sans-serif;;
-    scroll-behavior: smooth;
+  font-size: 100%;
+  background-color: #e4f0f6;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .container {
-    margin: 0 auto 10px;
-    padding: 20px;
-    max-width: 900px;
-    min-height: calc(100vh - 10px);
+  margin: 0 auto 10px;
+  padding: 20px;
+  max-width: 900px;
+  min-height: calc(100vh - 10px);
 }
 
 .logo {
-    max-width: 120px;
-    max-height: 100%;
-    margin: 0 auto;
-    user-select: none;
+  max-width: 120px;
+  max-height: 100%;
+  margin: 0 auto;
+  user-select: none;
 }
 
 header {
-    text-align: center;
+  text-align: center;
 }
 
 header > p {
-    line-height: 1.2rem;
-    border-bottom: .5px solid #9c8787;
-    padding-bottom: 20px;
+  line-height: 1.2rem;
+  border-bottom: 0.5px solid #9c8787;
+  padding-bottom: 20px;
 }
 
 main {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .search-box {
-    max-width: 600px;
-    height: 40px;
-    position: relative;
-    font-size: 15px;
-    margin: 0 auto;
+  max-width: 600px;
+  height: 40px;
+  position: relative;
+  font-size: 15px;
+  margin: 0 auto;
 }
 
 input {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: 0;
-    border-radius: 10px;
-    padding: 20px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 input:focus {
-    border-inline: 2px solid #bbb;
+  border-inline: 2px solid #bbb;
 }
 
 .search-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 80px;
-    height: 100%;
-    background-color: #052637;
-    color: #fff;
-    border: 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 100%;
+  background-color: #052637;
+  color: #fff;
+  border: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
 
-    transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 .search-btn:hover,
 .search-btn:active {
-    background-color: #052637dc;
-    color: #f5f7f8;
+  background-color: #052637dc;
+  color: #f5f7f8;
 }
 
 .grid {
-    margin-top: 20px;
-    width: 100%;
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .grid-container .grid div {
-    height: 350px;
-    position: relative;
-    overflow: hidden;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Image Overlay Styling  */
 .grid-container .grid div::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: "";
-    width: 100%;
-    height: 82.857142857143%;
-    background-color: #00000020;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    z-index: 900;
-    /*bring back to original position using javascript and set transition delay*/
-    transform: var(--transform-up);
-    transition: var(--image-before-transition);
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  width: 100%;
+  height: 82.857142857143%;
+  background-color: #00000020;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 900;
+  /*bring back to original position using javascript and set transition delay*/
+  transform: var(--transform-up);
+  transition: var(--image-before-transition);
 }
 
 .grid-container .grid div img {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }
 
 /* Image Sibling box styling */
 .grid div.img-siblingBox {
-    position: absolute;
-    bottom: 0;
-    z-index: 2000;
-    width: 100%;
-    height: 17.142857142857%;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    align-items: center;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 10px;
-    background-color: #F4F4F4;
-    transform: translateY(100%);
+  position: absolute;
+  bottom: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 17.142857142857%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  transform: translateY(100%);
 }
 
 .grid div.img-siblingBox::before {
-    display: none;
+  display: none;
 }
 
 .creator-img-box {
-    max-height: 40px;
-    max-width: 40px;
-    border-radius: 50% !important;
-    background: #05263798;
+  max-height: 40px;
+  max-width: 40px;
+  border-radius: 50% !important;
+  background: #05263798;
 }
 
-.creator-name{
-    color: #414141;
-    align-self: center;
+.creator-name {
+  color: #414141;
+  align-self: center;
 }
 
 i {
-    font-size: 22px;   
-    color: #000;
-    cursor: pointer;
-    justify-self: flex-end;
+  font-size: 22px;
+  color: #000;
+  cursor: pointer;
+  justify-self: flex-end;
 }
 
 @media (max-width: 350px) {
-    .search-btn {
-        width: 70px;
-        font-size: 14px;
-        text-transform: lowercase;
-    }
+  .search-btn {
+    width: 70px;
+    font-size: 14px;
+    text-transform: lowercase;
+  }
 
-    .grid {
-        grid-template-columns: 1fr;
-    }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
-    .grid-container .grid div {
-        /* max-width: 100%; */
-        height: 400px;
-    }
+  .grid-container .grid div {
+    /* max-width: 100%; */
+    height: 400px;
+  }
 }
