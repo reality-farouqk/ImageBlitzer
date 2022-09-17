@@ -12,7 +12,7 @@ function loadImages() {
     url +
     input.value +
     "&per_page=12&client_id=eX7rkrcCsaU_lOKOuah-MsmKA7zJxOO3jpVIad5G9yQ";
-  console.log(searchUrl);
+    
   fetch(searchUrl)
     .then((response) => {
       if (response.ok) return response.json();
@@ -68,8 +68,6 @@ function loadImages() {
 
         // Download image selected
         icon.addEventListener("click", () => {
-          //   window.open(data.results[i].links.download, "_blank");
-
           fetch(imageElem.src)
             .then((resp) => resp.blob())
             .then((blob) => {
@@ -82,9 +80,8 @@ function loadImages() {
               document.body.appendChild(a);
               a.click();
               window.URL.revokeObjectURL(url);
-              alert("your file has downloaded!"); // or you know, something with better UX...
             })
-            .catch(() => alert("oh no!"));
+            .catch(() => alert("Network Error! Please try again"));
         });
 
         // append the imageElement and it's sibling box to their parent container which is div
